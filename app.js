@@ -1,14 +1,20 @@
 import express from 'express'
+import http from 'http'
 
-const app = express()
-const port = 3000
+async function bootstrap() {
+  const app = express()
+  const server = http.createServer(app)
+  const port = 3000
 
-app.use(express.static('public'))
+  app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
-})
+  app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+  })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  app.listen(port, () => {
+    console.log(`App listening on port ${port}`)
+  })
+}
+
+bootstrap()
