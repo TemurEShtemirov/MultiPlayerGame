@@ -1,6 +1,8 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
+const socket = new io()
+
 const scoreEl = document.querySelector('#scoreEl')
 
 canvas.width = innerWidth
@@ -11,7 +13,6 @@ const y = canvas.height / 2
 
 const player = new Player(x, y, 10, 'white')
 
-
 let animationId
 function animate() {
   animationId = requestAnimationFrame(animate)
@@ -19,9 +20,6 @@ function animate() {
   c.fillRect(0, 0, canvas.width, canvas.height)
 
   player.draw()
-
- 
 }
 
 animate()
- 

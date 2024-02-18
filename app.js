@@ -16,6 +16,10 @@ async function bootstrap() {
     res.sendFile(__dirname + '/index.html')
   })
 
+  io.on('connection',(socket)=>{
+    console.log('A USER IS CONNECTED');
+  })
+
   server.listen(port, () => {
     console.log(`App listening on port ${port}`)
   })
